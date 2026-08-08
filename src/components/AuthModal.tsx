@@ -4,13 +4,11 @@ import {
   Mail,
   User,
   ShieldCheck,
-  Sparkles,
   ArrowRight,
   AlertCircle,
   Building2,
   DollarSign,
   Users,
-  CheckCircle,
 } from 'lucide-react';
 import { UserProfile } from '../types';
 import { apiFetch, setSessionData } from '../utils/storage';
@@ -87,26 +85,6 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
     }
   };
 
-  const handleDemoLogin = async () => {
-    setErrorMsg(null);
-    setLoading(true);
-    try {
-      const response = await apiFetch('/api/auth/login', {
-        method: 'POST',
-        body: JSON.stringify({ email: 'operador@clt.com.br', password: 'senha123' }),
-      });
-
-      setSessionData(response.user.email, response.token, response.user, response.refreshToken);
-      onSuccess(response.user);
-      onClose();
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : 'Erro desconhecido';
-      setErrorMsg('Não foi possível entrar como conta demo: ' + msg);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 backdrop-blur-sm p-4 overflow-y-auto">
       <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-md w-full overflow-hidden animate-fadeIn my-8">
@@ -165,28 +143,6 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
               <span>{errorMsg}</span>
             </div>
           )}
-
-          {/* Quick Demo Button */}
-          <div className="mb-5 p-3 bg-emerald-50 border border-emerald-200 rounded-xl">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <Sparkles className="w-4 h-4 text-emerald-600" />
-                <span className="text-xs font-bold text-emerald-900">Teste Rápido (Demonstração)</span>
-              </div>
-              <button
-                type="button"
-                id="btn-auth-demo"
-                onClick={handleDemoLogin}
-                disabled={loading}
-                className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-lg transition-colors shadow-sm"
-              >
-                Acessar como Operador Fabril
-              </button>
-            </div>
-            <p className="text-[11px] text-emerald-700 mt-1">
-              Entra com salário de R$ 3.850,00, 1 dependente e adicional de insalubridade.
-            </p>
-          </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {mode === 'register' && (

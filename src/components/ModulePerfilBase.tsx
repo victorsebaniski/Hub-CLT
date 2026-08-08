@@ -157,12 +157,7 @@ export const ModulePerfilBase: React.FC<ModulePerfilBaseProps> = ({ profile, onU
             <Sliders className="w-8 h-8 text-blue-400" />
           </div>
           <div>
-            <div className="flex items-center space-x-2">
-              <h2 className="text-xl font-black text-white">Perfil Base (O Cofre do Usuário)</h2>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                Alimenta os Simuladores
-              </span>
-            </div>
+            <h2 className="text-xl font-black text-white">Perfil Base (O Cofre do Usuário)</h2>
             <p className="text-xs text-slate-300 mt-1 max-w-2xl">
               Preencha suas informações salariais e contratuais uma única vez. Elas serão salvas e reutilizadas automaticamente nos simuladores de salário mensal, férias e rescisão!
             </p>
