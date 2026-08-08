@@ -1,0 +1,6 @@
+{
+  "name": "Hub CLT",
+  "description": "Calculadora e simulador trabalhista completo para trabalhadores CLT (Salário Líquido, Horas Extras, Férias com Vale da Volta e Rescisão)",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
